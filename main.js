@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
+    setInterval(showRandomTime, 1000);
+});
+
+function showRandomTime() {
   var hour = Math.floor(Math.random() * 12) + 1;
   var minute = Math.floor(Math.random() * 60);
 
@@ -16,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
   setMinute10("minute10", minute10);
   setMinute01("minute01", minute01);
   setBackgroundImage("cover", 'cover');
-});
+}
 
 function setBackgroundImage(id, image) {
   var el = document.getElementById(id);
