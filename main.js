@@ -1,3 +1,6 @@
+var DIRECTORY = "clock-radio-script";
+DIRECTORY = "countdown-clock";
+
 document.addEventListener("DOMContentLoaded", function() {
     setInterval(showRandomTime, 1000);
 });
@@ -13,22 +16,22 @@ function showRandomTime() {
 
   console.log(hour10, hour01, minute10, minute01);
 
-  setBackgroundImage("background", 'background');
+  setBackgroundImage("background", 'Layer_0');
   setHour10("hour10", hour10);
   setHour01("hour01", hour01);
   setBackgroundImage("seperator", 'seperator');
   setMinute10("minute10", minute10);
   setMinute01("minute01", minute01);
-  setBackgroundImage("cover", 'cover');
+  setBackgroundImage("background", 'border');
 }
 
 function setBackgroundImage(id, image) {
   var el = document.getElementById(id);
-  el.style.backgroundImage = "url(clock-radio-script/" + image + ".png)";
+  el.style.backgroundImage = "url(" + DIRECTORY + "/" + image + ".png)";
 }
 
 function setPrefix(id, image) {
-  setBackgroundImage(id, 'digit' + image);
+  setBackgroundImage(id, 'digit_' + image);
 }
 
 function setHour10(id, image) {
