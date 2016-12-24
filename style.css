@@ -1,3 +1,7 @@
+body {
+  overflow: hidden;
+}
+
 #clock-container {
   position: relative;
 }
