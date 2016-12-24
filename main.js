@@ -24,8 +24,12 @@ function showRandomTime() {
   var hour01 = hours % 10;
   var minute10 = Math.floor(minutes / 10);
   var minute01 = minutes % 10;
-  var seconds10 = Math.floor(seconds / 10);
-  var seconds01 = seconds % 10;
+
+  hour10 = 1
+  hour01 = 2
+  minute10 = 0
+  minute01 = 0
+  seconds = 00;
 
   // built for parties starting after 8PM, going past 11PM, going through 6AM.
   // the clock should show 08:30 PM
@@ -36,20 +40,27 @@ function showRandomTime() {
   // the clock should show 01:00 for 11:59:00 PM
   // the clock should show 00:59 for 11:59:01 PM
   // the clock should show 00:10 for 11:59:50 PM
-  // the clock should show 00:00 for 12:00:00 PM 2017
-  // the clock should show 00:01 for 12:00:01 PM 2017
-  // uhh, so basically it shows military time for anything but the 11PM hour
+  // the clock should show 12:00 for 12:00:00 PM 2017
+  // the clock shoudl show the HH:MM time after 12:00 PM
   if (hour10 === 1 && hour01 === 1) {
     minutesLeft = 60 - (minute10 * 10 + minute01);
+    if (minutesLeft === 60) {
+      hour10 = 1;
+      hour01 = 1;
+    } else {
+      hour10 = Math.floor(minutesLeft / 10);
+      hour01 = minutesLeft % 10;
+    }
 
-    hour10 = Math.floor(minutesLeft / 10);
-    hour01 = minutesLeft % 10;
-
-    minutes10 = seconds10;
-    minutes01 = seconds01;
+    if (seconds === 0) {
+      minute10 = 0;
+      minute01 = 0;
+    } else  {
+      secondsLeft = 60 - seconds;
+      minute10 = Math.floor(secondsLeft / 10);
+      minute01 = secondsLeft % 10;
+    }
   }
-
-  console.log(hour10, hour01, minute10, minute01);
 
   setBackgroundImage("background", 'Layer_0');
   setHour10("hour10", hour10);
