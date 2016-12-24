@@ -1,5 +1,6 @@
 var DIRECTORY = "clock-radio-script";
 DIRECTORY = "countdown-clock";
+DIRECTORY = "scaled";
 
 document.addEventListener("DOMContentLoaded", function() {
     setInterval(showRandomTime, 1000);
@@ -26,7 +27,7 @@ function showRandomTime() {
   var minute01 = minutes % 10;
 
   // hour10 = 1
-  // hour01 = 2
+  // hour01 = 1
   // minute10 = 0
   // minute01 = 0
   // seconds = 00;
