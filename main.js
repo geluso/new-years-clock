@@ -25,11 +25,11 @@ function showRandomTime() {
   var minute10 = Math.floor(minutes / 10);
   var minute01 = minutes % 10;
 
-  hour10 = 1
-  hour01 = 2
-  minute10 = 0
-  minute01 = 0
-  seconds = 00;
+  // hour10 = 1
+  // hour01 = 2
+  // minute10 = 0
+  // minute01 = 0
+  // seconds = 00;
 
   // built for parties starting after 8PM, going past 11PM, going through 6AM.
   // the clock should show 08:30 PM
