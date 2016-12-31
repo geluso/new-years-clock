@@ -29,8 +29,8 @@ function showRandomTime() {
   // hour10 = 1
   // hour01 = 1
   // minute10 = 0
-  // minute01 = 0
-  // seconds = 00;
+  // minute01 = 1
+  // seconds = 01;
 
   // built for parties starting after 8PM, going past 11PM, going through 6AM.
   // the clock should show 08:30 PM
@@ -43,15 +43,8 @@ function showRandomTime() {
   // the clock should show 00:10 for 11:59:50 PM
   // the clock should show 12:00 for 12:00:00 PM 2017
   // the clock shoudl show the HH:MM time after 12:00 PM
-  if (hour10 === 1 && hour01 === 1) {
+  if (hour10 === 1 && hour01 === 1 && (minute10 > 0 || minute01 > 0)) {
     minutesLeft = 60 - (minute10 * 10 + minute01);
-    if (minutesLeft === 60) {
-      hour10 = 1;
-      hour01 = 1;
-    } else {
-      hour10 = Math.floor(minutesLeft / 10);
-      hour01 = minutesLeft % 10;
-    }
 
     if (seconds === 0) {
       minute10 = 0;
@@ -60,7 +53,11 @@ function showRandomTime() {
       secondsLeft = 60 - seconds;
       minute10 = Math.floor(secondsLeft / 10);
       minute01 = secondsLeft % 10;
+      minutesLeft -= 1;
     }
+
+    hour10 = Math.floor(minutesLeft / 10);
+    hour01 = minutesLeft % 10;
   }
 
   setBackgroundImage("background", 'Layer_0');
